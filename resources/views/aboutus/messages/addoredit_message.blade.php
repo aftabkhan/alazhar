@@ -13,18 +13,22 @@
         </div>
         <div class="section-body">
                 <div class="card">
+                    @if (session('status'))
                     <div class="card-header">
-                        <h4>{{$page_title}}</h4>
-                        @if (session('status'))
-                            <div class="alert alert-success">
-                                {{ session('status') }}
-                            </div>
-                        @endif
+                        <div class="alert alert-success">
+                            {{ session('status') }}
+                        </div>
                     </div>
+                    @endif
+                    <div class="container">
                         <form class="w-100" action = "{{url('aboutus-message/store')}}" method = "post"files='false' enctype="multipart/form-data">
                             	@csrf
-                                <div class="form-group col-12">
-                                        <label for="">Page Title(English)</label>
+                                <div class="row">
+                                    <div class="col-12 bg-light mb-4">
+                                        <h5 class="m-2">Post in English</h5>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="">Page Title</label>
                                         @if(isset($data->page_title_en))
                                             <input class="form-control" id="" cols="30" rows="10" name = "page_title_en" value="{{$data->page_title_en}}" />
                                         @else
@@ -37,24 +41,8 @@
                                                 </div>
                                             </div>
                                         @endif 
-                                </div>
-                                <div class="form-group col-12">
-                                        <label for="">Page Title(Arabic)</label>
-                                        @if(isset($data->page_title_ar))
-                                            <input class="form-control" id="" cols="30" rows="10" name = "page_title_ar" value="{{$data->page_title_ar}}" />
-                                            
-                                        @else
-                                            <input class="form-control" id="" cols="30" rows="10" name = "page_title_ar" />
-                                        @endif
-                                        @if(!empty($errors->has('page_title_ar')))
-                                            <div class="row col-lg-12">
-                                                <div class="alert alert-danger">
-                                                    <span>{{ $errors->first('page_title_ar') }}</span>
-                                                </div>
-                                            </div>
-                                        @endif 
-                                </div>
-                                <div class="form-group col-12">
+                                    </div>
+                                    <div class="form-group col-12">
                                         <label for="">{{$name_field_label}}(English)</label>
                                         @if(isset($data->name_en))
                                             <input class="form-control" id="" cols="30" rows="10" name = "name_en" value="{{$data->name_en}}" />
@@ -68,9 +56,52 @@
                                                 </div>
                                             </div>
                                         @endif 
+                                    </div>                                    
+                                    <div class="form-group col-12">
+                                        <label for="">Message(English)</label>
+                                        @if(isset($data->message_en))
+                                        <textarea name = "message_en" class="summernote">{{$data->message_en}}</textarea>
+                                            @if(!empty($errors->has('message_ar')))
+                                                    <div class="row col-lg-12">
+                                                        <div class="alert alert-danger">
+                                                            <span>{{ $errors->first('message_ar') }}</span>
+                                                        </div>
+                                                    </div>
+                                            @endif
+                                        @else
+                                            <textarea name = "message_en" class="summernote"></textarea>
+                                            @if(!empty($errors->has('message_en')))
+                                                <div class="row col-lg-12">
+                                                    <div class="alert alert-danger">
+                                                        <span>{{ $errors->first('message_en') }}</span>
+                                                    </div>
+                                                </div>
+                                            @endif
+                                        @endif
+                                    </div>
                                 </div>
-                                <div class="form-group col-12">
-                                        <label for="">{{$name_field_label}}(Arabic)</label>
+                                <div class="row">
+                                    <div class="col-12 bg-light mb-4">
+                                        <h5 class="m-2">Post in Arabic</h5>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="">Page Title</label>
+                                        @if(isset($data->page_title_ar))
+                                            <input class="form-control" id="" cols="30" rows="10" name = "page_title_ar" value="{{$data->page_title_ar}}" />
+                                            
+                                        @else
+                                            <input class="form-control" id="" cols="30" rows="10" name = "page_title_ar" />
+                                        @endif
+                                        @if(!empty($errors->has('page_title_ar')))
+                                            <div class="row col-lg-12">
+                                                <div class="alert alert-danger">
+                                                    <span>{{ $errors->first('page_title_ar') }}</span>
+                                                </div>
+                                            </div>
+                                        @endif 
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="">{{$name_field_label}}</label>
                                         @if(isset($data->name_ar))
                                             <input class="form-control" id="" cols="30" rows="10" name = "name_ar" value="{{$data->name_ar}}" />
                                             
@@ -84,54 +115,34 @@
                                                 </div>
                                             </div>
                                         @endif 
-                                </div>
-                                <div class="form-group col-12
-                                    <label for="">Message(English)</label>
-                                    @if(isset($data->message_en))
-                                            <textarea name = "message_en" class="summernote">{{$data->message_en}}</textarea>
-                                            @if(!empty($errors->has('message_ar')))
-                                                    <div class="row col-lg-12">
-                                                        <div class="alert alert-danger">
-                                                            <span>{{ $errors->first('message_ar') }}</span>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                    @else
-                                            <textarea name = "message_en" class="summernote"></textarea>
-                                            @if(!empty($errors->has('message_en')))
-                                                <div class="row col-lg-12">
-                                                    <div class="alert alert-danger">
-                                                        <span>{{ $errors->first('message_en') }}</span>
-                                                    </div>
-                                                </div>
-                                            @endif
-                                    @endif
-
-                                    
-                                </div>
-                                <div class="form-group col-12">
-                                    <label for="">Message(Arabic)</label>
-                                        @if(isset($data->message_ar))
-                                            <textarea name = "message_ar" class="summernote">{{$data->message_ar}}</textarea>
-                                            @if(!empty($errors->has('message_ar')))
-                                                    <div class="row col-lg-12">
-                                                        <div class="alert alert-danger">
-                                                            <span>{{ $errors->first('message_ar') }}</span>
-                                                        </div>
-                                                    </div>
-                                                @endif
-                                        @else
-                                            <textarea name = "message_ar" class="summernote"></textarea>
+                                    </div>
+                                    <div class="form-group col-12">
+                                        <label for="">Message</label>
+                                            @if(isset($data->message_ar))
+                                                <textarea name = "message_ar" class="summernote">{{$data->message_ar}}</textarea>
                                                 @if(!empty($errors->has('message_ar')))
-                                                    <div class="row col-lg-12">
-                                                        <div class="alert alert-danger">
-                                                            <span>{{ $errors->first('message_ar') }}</span>
+                                                        <div class="row col-lg-12">
+                                                            <div class="alert alert-danger">
+                                                                <span>{{ $errors->first('message_ar') }}</span>
+                                                            </div>
                                                         </div>
-                                                    </div>
-                                                @endif
-                                        @endif    
+                                                    @endif
+                                            @else
+                                                <textarea name = "message_ar" class="summernote"></textarea>
+                                                    @if(!empty($errors->has('message_ar')))
+                                                        <div class="row col-lg-12">
+                                                            <div class="alert alert-danger">
+                                                                <span>{{ $errors->first('message_ar') }}</span>
+                                                            </div>
+                                                        </div>
+                                                    @endif
+                                            @endif    
+                                    </div>
                                 </div>
-                                <div class="col-sm-6">
+                                <div class="row">
+                                    <div class="col-12 bg-light mb-4">
+                                        <h5 class="m-2">Upload Image</h5>
+                                    </div>
                                     <div class="form-group col-12">
                                         <input type="file" name = "profile_image" id= "profile_image" class="form-control" placeholder="Upload your resume">
                                         @if(!empty($errors->has('profile_image')))
@@ -150,8 +161,6 @@
                                 </div>
                         </form>
                     </div>
-                    <div class="card-footer bg-whitesmoke">
-                        This is card footer
                     </div>
                 </div>
         </div>
