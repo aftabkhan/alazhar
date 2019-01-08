@@ -1,0 +1,230 @@
+/**
+ *
+ * You can write your CSS code here, DO NOT touch the default JavaScript file
+ * because it will make it harder for you to update.
+ * 
+ */
+
+/*# sourceMappingURL=custom.css.map */
+
+.sidebar-brand a {
+    display: block;
+    padding: 1rem;
+    background: #fff;
+
+}
+.sidebar-brand.sidebar-brand-sm a {
+    padding: 0.6rem !important;
+}
+/* Buttons */
+
+.btn {
+    border-radius: 24px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    font-weight: 600;
+    padding-left: 1.8rem;
+    padding-right: 1.8rem;
+}
+
+.btn-sm {
+    padding-left: 0.6rem;
+    padding-right: 0.6rem;
+    font-size: 0.8rem;
+}
+
+.btn:focus,
+.btn.focus {
+    box-shadow: none;
+}
+
+.btn-green {
+    background-color: #25c669;
+    border-color: #25c669;
+    color: #fff;
+}
+
+.btn-green:hover,
+.btn-green:focus {
+    background-color: #39e381;
+    border-color: #39e381;
+    color: #fff;
+}
+
+.btn-green:not(:disabled):not(.disabled):active,
+.btn-green:not(:disabled):not(.disabled).active,
+.show > .btn-green.dropdown-toggle,
+
+.btn-green:not(.btn-social):not(.btn-social-icon):active, 
+.btn-green:not(.btn-social):not(.btn-social-icon):focus, 
+.btn-green:not(.btn-social):not(.btn-social-icon):hover {
+    background-color: #16a854;
+    border-color: #16a854;
+    color: #fff;
+}
+
+.btn-dark-outline {
+    background-color: transparent;
+    border-color: #333;
+    color: #333;
+}
+
+.btn-dark-outline:hover,
+.btn-dark-outline:focus {
+    background-color: #333;
+    border-color: #333;
+    color: #fff;
+}
+
+.btn-dark-outline:not(:disabled):not(.disabled):active,
+.btn-dark-outline:not(:disabled):not(.disabled).active,
+.show > .btn-green.dropdown-toggle {
+    background-color: #000;
+    border-color: #000;
+    color: #fff;
+}
+
+.btn-green-outline {
+    background-color: transparent;
+    border-color: #25c669;
+    color: #25c669;
+}
+
+.btn-green-outline:hover,
+.btn-green-outline:focus {
+    background-color: #25c669;
+    border-color: #25c669;
+    color: #fff;
+}
+
+.btn-green-outline:not(:disabled):not(.disabled):active,
+.btn-green-outline:not(:disabled):not(.disabled).active,
+.show > .btn-green-outline.dropdown-toggle,
+.btn-green-outline:not(.btn-social):not(.btn-social-icon):active, 
+.btn-green-outline:not(.btn-social):not(.btn-social-icon):focus, 
+.btn-green-outline:not(.btn-social):not(.btn-social-icon):hover{
+    background-color: #25c669;
+    border-color: #25c669;
+    color: #fff;
+}
+
+.btn-white-outline {
+    background-color: transparent;
+    border-color: #fff;
+    color: #fff;
+}
+
+.btn-white-outline:hover,
+.btn-white-outline:focus {
+    background-color: transparent;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+.btn-white-outline:not(:disabled):not(.disabled):active,
+.btn-white-outline:not(:disabled):not(.disabled).active,
+.show > .btn-white-outline.dropdown-toggle {
+    background-color: transparent;
+    border-color: #f8f8f8;
+    color: #fff;
+}
+
+/* Typography */
+
+.text-green {
+    color: #25c669;
+}
+
+.text-blue {
+    color: #346bae;
+}
+
+
+.text-light-blue {
+    color: #00bcd1;
+}
+
+
+.text-grey {
+    color: #646464;
+}
+
+.text-lite-grey {
+    color: #aaa;
+}
+
+.text-yellow {
+    color: #d0ba66;
+}
+
+.text-cairo {
+    font-family: 'Cairo', sans-serif;
+}
+
+.text-baloo {
+    font-family: 'Baloo Bhaijaan', cursive;
+}
+
+.text-tajawal {
+    font-family: 'Tajawal', sans-serif;
+}
+
+.img-frame {
+    padding: 0.3rem;
+    box-shadow: 0 1px 2px 0 rgba(60,64,67,0.302), 0 1px 3px 1px rgba(60,64,67,0.149);
+}
+
+.cursor {
+    cursor: pointer;
+}
+
+
+/* Background Color */
+
+.bg-light {
+    background-color: #f8f8f8;
+}
+
+.bg-purple {
+    background-color: #6f42c1;
+}
+
+.bg-green {
+    background-color: #25c669;
+}
+
+.bg-dark-blue {
+    background-color: #346bae;
+}
+
+.bg-blue {
+    background-color: #3d7dcc;
+}
+
+.bg-light-blue {
+    background-color: #00bcd1;
+}
+
+.bg-dark-grey {
+    background-color: #e0e0e0;
+}
+
+.bg-grey {
+    background-color: #686868;
+}
+.bg-deep {
+    background-color: #f1f1f1 !important;
+}
+
+
+.note-toolbar-wrapper .note-btn {
+    padding: 2px 0.58rem !important;
+    border-radius: 4px !important;
+}
+.note-toolbar.card-header {
+    min-height: auto !important;
+}
+
+.card.card-primary {
+    border-top: 2px solid #16a854;
+}
