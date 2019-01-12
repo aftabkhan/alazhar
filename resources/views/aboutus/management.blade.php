@@ -68,27 +68,62 @@
             <section class="pt-3 pb-3">
                 <div class="container">
                     <div class="row">
-                        <div class="col-lg-7">
+                        <div class="col-lg-12">
                             <div class="page-head">
                                 <h2>Management</h2> 
                             </div>
-                            <div class="para pt-4">
-                                <p>Content will be updated soon...</p>
-                            </div>
                         </div>
-                        <!-- <div class="col-lg-4 ml-auto">
-                            <div class="page-image mt-5"> <img src="" alt="" class="img-fluid"> </div>
-                            
-                            <div class="message-author">
-                                <h3 class="text-green"></h3>
-                                <h4>Management</h4>
-                            </div>
-                        </div> -->
                     </div>
+                   <div id="tree"></div>
                 </div>
             </section>
             <!-- /Page Content -->
-            @include('layouts.footer')
+            <script src="{{asset('public/js/orgChart.js')}}"></script>
+            <script>
+                OrgChart.templates.diva.field_0 = 
+                    '<text class="field_0" style="font-size: 20px;" fill="#ffffff" x="125" y="30" text-anchor="middle">{val}</text>';
+                OrgChart.templates.diva.field_1 = 
+                    '<text class="field_1" style="font-size: 14px;" fill="#ffffff" x="100" y="120" text-anchor="middle">{val}</text>';
+
+                window.onload = function () {
+                    var chart = new OrgChart(document.getElementById("tree"), {
+                        template: "diva",
+                        layout: BALKANGraph.normal,
+                        enableSearch: false,
+                        scaleInitial: BALKANGraph.match.boundary,
+                        //mouseScroolBehaviour: BALKANGraph.action.zoom,
+                        nodeBinding: {
+                            //field_0: "name",
+                            field_1: "title",
+                            img_0: "img"
+                        },
+                        nodes: [
+                            { id: 1, name: "Mr. Saad Al Shamrany", title: "Chairman", img:"http://localhost/projects/alazhar/static/26Nov18/assets/imgs/chairman.jpg" },
+                            
+                            { id: 2, pid: 1, name: "Mr. Misfer Saad Al Shamrany", title: "Vice Chairman", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/vice-chairman.jpg" },
+                            
+                            { id: 3, pid: 2, name: "Dr. Abdulmalik Hosain Alsaban", title: "General Manager", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/general-manager.jpg" },
+                            
+                            { id: 4, pid: 2, name: "Dr. Mohamad Saleem Terro", title: "CEO", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/ceo.jpg" },
+                            
+                            { id: 5, pid: 3, name: "Ph. Sultan. R. Al-mutery", title: "Deputy GM", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/deputy-gm.jpg" },
+                            
+                            { id: 6, pid: 3, name: "Dr. Ahmad Abdulrazzaq Bafarat", title: "TQM Director", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/tqm-director.jpg" },
+                            
+                            { id: 7, pid: 3, name: "Dr. ", title: "Infection Control Director", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/doctor-thumb.png" },
+                            
+                            { id: 8, pid: 4, name: "Dr. ", title: "Medical Director", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/medical-director.jpg" },
+                            
+                            { id: 9, pid: 4, name: "HR Manager", title: "HR Manager", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/doctor-thumb.png" },
+                            
+                            { id: 10, pid: 4, name: "Nursing Director", title: "Nursing Director", img: "http://localhost/projects/alazhar/static/26Nov18/assets/imgs/doctor-thumb.png" }
+                        ]
+                    });  
+                    
+                    $("#tree a").css("display","none");
+                };
+            </script>
+     @include('layouts.footer')
 </body>
 
 </html>
